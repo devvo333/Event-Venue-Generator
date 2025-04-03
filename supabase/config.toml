@@ -1,0 +1,50 @@
+# Production Configuration
+[production]
+project_id = "your-production-project-id"
+api_url = "https://your-production-project.supabase.co"
+db_host = "db.your-production-project.supabase.co"
+db_port = 5432
+db_name = "postgres"
+db_user = "postgres"
+db_password = "your-secure-password"
+
+# Storage Configuration
+[production.storage]
+bucket_name = "production-assets"
+bucket_public = true
+bucket_private = false
+
+# Database Configuration
+[production.database]
+max_connections = 100
+pool_size = 20
+statement_timeout = 60000
+idle_in_transaction_session_timeout = 30000
+
+# Security Configuration
+[production.security]
+jwt_secret = "your-jwt-secret"
+jwt_expiry = 3600
+row_level_security = true
+api_rate_limit = 1000
+
+# Monitoring Configuration
+[production.monitoring]
+enabled = true
+log_level = "info"
+metrics_collection = true
+alerting = true
+
+# Backup Configuration
+[production.backup]
+enabled = true
+schedule = "0 0 * * *"  # Daily at midnight
+retention_days = 7
+storage_bucket = "backups"
+
+# Scaling Configuration
+[production.scaling]
+auto_scaling = true
+min_instances = 2
+max_instances = 10
+target_cpu_utilization = 70 
